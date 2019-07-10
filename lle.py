@@ -39,6 +39,7 @@ class LLE():
         M = np.dot(I_W.transpose(), I_W)
         # solve the d+1 lowest eigen values
         eigen_values, eigen_vectors = np.linalg.eig(M)
+        eigen_vectors = eigen_vectors.T
         index = np.argsort(eigen_values)[1 : self.low_dims + 1]
         selected_eig_values = eigen_values[index]
         selected_eig_vectors = eigen_vectors[index]
